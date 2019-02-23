@@ -15,7 +15,7 @@
       <event-detail :event="selectedEvent"/>
     </div>
     <div>
-      <event-map/>
+      <event-map :map="map"/>
     </div>
   </div>
 </template>
@@ -54,6 +54,11 @@ export default {
 
       eventBus.$on("selected-event", (event) => {
         this.selectedEvent = event;
+      });
+    },
+    getMap(){
+      eventBus.$on("update-map", (map) => {
+        this.map = map;
       });
     }
   }

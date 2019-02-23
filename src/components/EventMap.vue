@@ -1,11 +1,16 @@
 <template lang="html">
-  <l-map ref="map" :zoom=13 :center="[47.413220, -1.219482]">
-    {{this.$refs.map}}
-  </l-map>
+  <div id="map">
+
+  </div>
+  <!-- <l-map
+  :ref="map"
+  :zoom="z"
+  :center="center"
+  /> -->
 </template>
 
 <script>
-import {LMap, LTileLayer, LMarker } from 'vue2-leaflet';
+import {LMap, LTileLayer, LMarker} from 'vue2-leaflet';
 
 export default {
   name: 'event-map',
@@ -17,19 +22,31 @@ export default {
   data(){
     return{
       map: null,
-      layersToAdd: []
+      z: 0,
+      center: [0.0, 0.0]
     };
   },
   mounted () {
-    this.$nextTick(() => {
-      this.map = this.$refs.map.mapObject
+    this.map = L.map('map', {
+      center: this.center,
+      zoom: this.zoom
     });
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(this.map);
+
+    // this.$nextTick(() => {
+    //   this.map = this.$refs.map.mapObject
+    // });
+
+    L.tileLayer(`https://tile.openstreetmap.org/${this.z}/${this.center[0]}/${this.center[1]}.png`).addTo(this.map);
   },
 }
 </script>
 
 <style lang="css" scoped>
+  #map {
+    height: 180px;
+    width: -webkit-fill-available;
+  }
+  l-map {
+    height: 180px;
+  }
 </style>
