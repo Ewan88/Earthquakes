@@ -14,9 +14,7 @@
     <div id="detail" v-if="selectedEvent">
       <event-detail :event="selectedEvent"/>
     </div>
-    <div>
-      <event-map :map="map"/>
-    </div>
+    <event-map :map="map"/>
   </div>
 </template>
 
@@ -67,7 +65,6 @@ export default {
 
 <style>
 #app {
-  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
