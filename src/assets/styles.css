@@ -1,0 +1,34 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+#app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: monospace;
+}
+#form {
+  display: inline-flex;
+  flex-flow: row wrap;
+  align-items: center;
+  border: 2px solid grey;
+  border-radius: 15px;
+  padding: 5px 10px;
+  background-color: silver;
+}
+input {
+  margin-right: 10px;
+}
+label {
+  margin-right: 5px;
+  font-weight: bold;
+}
+input[type="date"] {
+  width: 125px;
+}
+input.mag {
+  width: 30px;
+  margin-right: 0;
+}

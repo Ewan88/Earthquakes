@@ -50,47 +50,15 @@ export default {
       .then(res => res.json())
       .then(events => this.events = events)
 
-      eventBus.$on("selected-event", (event) => {
+      eventBus.$on('selected-event', (event) => {
         this.selectedEvent = event;
       });
     },
     getMap(){
-      eventBus.$on("update-map", (map) => {
+      eventBus.$on('update-map', (map) => {
         this.map = map;
       });
     }
   }
 }
 </script>
-
-<style>
-#app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: sans-serif;
-}
-#form {
-  display: inline-flex;
-  flex-flow: row wrap;
-  align-items: center;
-  border: 2px solid grey;
-  border-radius: 15px;
-  padding: 5px 10px;
-  background-color: silver;
-}
-input {
-  margin-right: 10px;
-}
-label {
-  margin-right: 5px;
-  font-weight: bold;
-}
-input[type="date"] {
-  width: 125px;
-}
-input.mag {
-  width: 30px;
-  margin-right: 0;
-}
-</style>

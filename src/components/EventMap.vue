@@ -36,7 +36,12 @@ export default {
       );
       this.tileLayer.addTo(this.map);
     },
-    initLayers() {},
+    initLayers() {
+
+    },
+    handleSelect(){
+      eventBus.$emit('update-map', this.map);
+    },
   }
 }
 </script>
