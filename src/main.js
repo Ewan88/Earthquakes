@@ -15,5 +15,5 @@ new Vue({
     App,
     L,
   },
-  template: '<App/>'
+  template: '<App/>',
 })

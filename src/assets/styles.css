@@ -7,7 +7,6 @@ html, body, #app, #map {
   width: 100%;
 }
 #app {
-  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
