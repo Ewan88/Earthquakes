@@ -24,9 +24,3 @@ export default {
   }
 }
 </script>
-
-<style lang="css" scoped>
-select {
-    margin: 10px;
-}
-</style>

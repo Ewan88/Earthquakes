@@ -1,20 +1,25 @@
 <template>
   <div id="app">
-    <div id="form">
-      <label for="from">from:</label>
-      <input class="from" type="date" v-model="from" v-on:input="getEvents"/>
-      <label for="to">to:</label>
-      <input class="to" type="date" v-model="to" v-on:input="getEvents"/>
-      <label for="mag">mag:</label>
-      <input class="mag" type="number" v-model="mag" v-on:input="getEvents"/>
-    </div>
-    <div id="drop-down">
-      <event-list :events="events"/>
-    </div>
-    <div id="detail" v-if="selectedEvent">
-      <event-detail :event="selectedEvent"/>
-    </div>
-    <event-map :map="map"/>
+
+      <div id="form">
+        <label for="from">from:</label>
+        <input class="from" type="date" v-model="from" v-on:input="getEvents"/>
+        <label for="to">to:</label>
+        <input class="to" type="date" v-model="to" v-on:input="getEvents"/>
+        <label for="mag">mag:</label>
+        <input class="mag" type="number" v-model="mag" v-on:input="getEvents"/>
+      </div>
+
+      <div id="drop-down">
+        <event-list :events="events"/>
+      </div>
+
+      <div id="detail" v-if="selectedEvent">
+        <event-detail :event="selectedEvent"/>
+      </div>
+
+      <event-map :map="map"/>
+      
   </div>
 </template>
 
@@ -54,11 +59,6 @@ export default {
         this.selectedEvent = event;
       });
     },
-    getMap(){
-      eventBus.$on('update-map', (map) => {
-        this.map = map;
-      });
-    }
   }
 }
 </script>

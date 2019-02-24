@@ -14,8 +14,8 @@ export default {
   data(){
     return{
       map: null,
-      z: 0,
-      center: [0.0, 0.0],
+      zoom: 2,
+      center: [0.0, -0.0],
       tileLayer: null,
       layers: [],
     };
@@ -35,21 +35,11 @@ export default {
         }
       );
       this.tileLayer.addTo(this.map);
+      eventBus.$emit('update-map', this.map);
     },
     initLayers() {
 
     },
-    handleSelect(){
-      eventBus.$emit('update-map', this.map);
-    },
   }
 }
 </script>
-
-<style lang="css" scoped>
-  .map {
-    height: 180px;
-    width: auto;
-    border: 2px solid silver;
-  }
-</style>
